@@ -109,7 +109,7 @@ func InitDB() *gorm.DB {
 	driverName := "mysql"
 	host := "localhost"
 	port := "3306"
-	database := "gin_vue_essential"
+	database := "gin-vue-essential"
 	username := "root"
 	password := "2222"
 	charset := "utf8"
