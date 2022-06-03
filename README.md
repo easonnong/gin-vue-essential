@@ -1,4 +1,5 @@
 # gin-vue-essential
+<<<<<<< HEAD
 
 ## 一、项目内容
 
@@ -51,3 +52,5 @@ VUE_APP_BASE_URL = http://localhost:8080/api/
 ```shell
 yarn serve
 ```
+=======
+>>>>>>> e53f37e0f4f19cb3616753d59a08fc61b4ca9049
