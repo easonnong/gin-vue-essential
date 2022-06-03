@@ -1,5 +1,4 @@
 # gin-vue-essential
-<<<<<<< HEAD
 
 ## 一、项目内容
 
