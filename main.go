@@ -22,15 +22,12 @@ func main() {
 	router := gin.Default()
 	router = CollectRoutes(router)
 
-	//从配置文件获取监听端口
-	portListen := viper.GetString("server.port")
-	if portListen == "" {
-		panic("监听端口错误")
+	//从配置文件获取监听端口并运行路由
+	port := viper.GetString("server.port")
+	if port != "" {
+		panic(router.Run(":" + port))
 	}
-	portAddr := viper.GetString("server.host") + ":" + portListen
-
-	//运行路由
-	panic(router.Run(portAddr))
+	panic(router.Run()) // listen and serve on 0.0.0.0:8080
 }
 
 //从配置文件中读取
