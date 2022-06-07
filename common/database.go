@@ -2,6 +2,7 @@ package common
 
 import (
 	"fmt"
+	"net/url"
 
 	"github.com/easonnong/gin-vue-essential/model"
 	"github.com/jinzhu/gorm"
@@ -20,13 +21,16 @@ func InitDB() {
 	username := viper.GetString("datasource.username")
 	password := viper.GetString("datasource.password")
 	charset := viper.GetString("datasource.charset")
-	args := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=true",
+	loc := viper.GetString("datasource.loc")
+	args := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=true&loc=%s",
 		username,
 		password,
 		host,
 		port,
 		database,
-		charset)
+		charset,
+		url.QueryEscape(loc),
+	)
 
 	dbTemp, err := gorm.Open(driverName, args)
 	DB = dbTemp
