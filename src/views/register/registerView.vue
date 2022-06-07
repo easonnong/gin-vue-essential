@@ -70,6 +70,8 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators';
 
 import customValidator from '@/helper/validator';
 import { mapActions } from 'vuex';
+import storageService from '@/service/storageService';
+import userService from '@/service/userService';
 
 export default {
   data() {
@@ -116,16 +118,39 @@ export default {
       }
 
       // 请求api
+      
       this.userRegister(this.user).then(() => {
         // 跳转首页
         this.$router.replace({ name: 'Home' });
       }).catch((err) => {
-        this.$bvToast.toast(err.data.data.msg, {
+        this.$bvToast.toast(err.response.data.msg, {
           title: '数据验证错误',
           variant: 'danger',
           solid: true,
         });
       });
+      
+      //const api = 'http://localhost:8081/api/auth/register'
+     /*  userService.register(this.user).then((res)=>{
+        //保存token
+        storageService.set(storageService.USER_TOKEN,res.data.data.token);
+        userService.info().then((response) => {
+          //保存用户信息
+          storageService.set(storageService.USER_INFO,JSON.stringify(response.data.user));
+          //跳转主页
+          this.$router.replace({name:'Home'});
+        });
+        
+      }).catch((err)=>{
+//        console.log('err:',err.response.data.msg);
+
+        //友好界面提示
+        this.$bvToast.toast(err.response.data.msg,{
+          title:'数据验证错误',
+          variant:'danger',
+          solid:true,
+        })
+      }); */
 
       console.log('register');
     },

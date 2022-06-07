@@ -6,7 +6,7 @@
       variant="info"
     >
       <b-container>
-        <b-navbar-brand @click="$router.push({name: 'Home'})">Jkdev.cn</b-navbar-brand>
+        <b-navbar-brand @click="$router.push({name: 'Home'})">Home</b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -45,6 +45,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import storageService from '@/service/storageService';
 
 export default {
   computed: mapState({

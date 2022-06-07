@@ -101,7 +101,7 @@ export default {
         // 跳转首页
         this.$router.replace({ name: 'Home' });
       }).catch((err) => {
-        this.$bvToast.toast(err.data.data.msg, {
+        this.$bvToast.toast(err.response.data.msg, {
           title: '数据验证错误',
           variant: 'danger',
           solid: true,

@@ -1,6 +1,6 @@
 // 本地缓存服务
 
-const PREFIX = 'jkdev_';
+const PREFIX = 'ginessential_';
 
 // user
 const USER_PRIFIX = `${PREFIX}user_`;

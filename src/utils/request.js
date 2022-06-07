@@ -1,10 +1,11 @@
 import axios from 'axios';
 import storageService from '../service/storageService';
 
-const service = axios.create({
+/* const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_URL,
   timeout: 1000 * 5,
-});
+  headers:{Authorization:`Bearer ${storageService.get(storageService.USER_TOKEN)}`},
+}); */
 
 // Add a request interceptor
 service.interceptors.request.use((config) => {
